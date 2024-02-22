@@ -10,13 +10,13 @@ export default function App() {
     // e.target.innerText;
     // e.target.innerText = 111;
     //alert(x + ":" + y);
-    if (side === "A") {
+    if (side === "A" && e.target.innerText === "") {
       e.target.innerText = "O";
       setPositionA((prev) => [...prev, { x, y }]);
       // console.log("A", positionA);
       setSide("B");
     } else {
-      if (side === "B") {
+      if (side === "B" && e.target.innerText === "") {
         e.target.innerText = "X";
         setPositionB((prev) => [...prev, { x, y }]);
         // console.log("B", positionB);
