@@ -24,12 +24,19 @@ export default function App() {
       }
     }
 
-    showWhoWins();
+    const Awin = showWhoWins(positionA);
+    const Bwin = showWhoWins(positionB);
+
+    if (Awin) {
+      alert("A플레이어가 이겼습니다.");
+    }
+
+    if (Bwin) {
+      alert("B플레이어가 이겼습니다.");
+    }
   };
 
-  const showWhoWins = () => {
-    const arrayA = positionA;
-    const arrayB = positionB;
+  const showWhoWins = (array) => {
     let row1 = 0,
       row2 = 0,
       row3 = 0,
@@ -39,7 +46,7 @@ export default function App() {
       x1 = 0,
       x2 = 0;
 
-    arrayA.forEach((box) => {
+    array.forEach((box) => {
       if (box.y === 1) row1 += box.x;
       if (box.y === 2) row2 += box.x;
       if (box.y === 3) row3 += box.x;
@@ -48,20 +55,29 @@ export default function App() {
       if (box.x === 3) col3 += box.y;
     });
     if (
-      arrayA.includes({ x: 1, y: 1 }) &&
-      arrayA.includes({ x: 2, y: 2 }) &&
-      arrayA.includes({ x: 3, y: 3 })
+      array.includes({ x: 1, y: 1 }) &&
+      array.includes({ x: 2, y: 2 }) &&
+      array.includes({ x: 3, y: 3 })
     ) {
       x1 = true;
     }
     if (
-      arrayA.includes({ x: 3, y: 1 }) &&
-      arrayA.includes({ x: 2, y: 2 }) &&
-      arrayA.includes({ x: 1, y: 3 })
+      array.includes({ x: 3, y: 1 }) &&
+      array.includes({ x: 2, y: 2 }) &&
+      array.includes({ x: 1, y: 3 })
     ) {
       x2 = true;
     }
-    console.log({ row1, row2, row3, col1, col2, col3, x1, x2 });
+    return (
+      row1 === 6 ||
+      row2 === 6 ||
+      row3 === 6 ||
+      col1 === 6 ||
+      col2 === 6 ||
+      col3 === 6 ||
+      x1 === true ||
+      x2 === true
+    );
   };
 
   return (
