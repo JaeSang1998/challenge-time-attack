@@ -1,0 +1,21 @@
+.board {
+  width: 200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cell {
+  width: 60px;
+  height: 60px;
+  background-color: #f0f0f0;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.winner {
+  margin: 20px 0;
+  font-size: 24px;
+}
