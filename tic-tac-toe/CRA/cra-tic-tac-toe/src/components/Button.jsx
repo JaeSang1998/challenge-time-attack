@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { turnChange } from "../redux/modules/currentSlice";
 
 
-function Button(props) {
+function Button() {
   const [buttonContent, setButtonContent] = useState("");
   const dispatch = useDispatch();
   const turn = useSelector((state) => state.current.currentTurn)
