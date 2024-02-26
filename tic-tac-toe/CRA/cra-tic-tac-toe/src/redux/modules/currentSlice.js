@@ -5,7 +5,7 @@ const initialState = { currentTurn: true };
 const currentSlice = createSlice({
   name: "current",
   initialState,
-  reducer: {
+  reducers: {
     turnChange: (state, action) => {
       state.currentTurn = action.payload;
     },

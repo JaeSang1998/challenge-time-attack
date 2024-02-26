@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import Button from "./components/Button";
+import { useSelector } from "react-redux";
 
 function App() {
+  const turn = useSelector((state) => state.current.currentTurn)
+
   return (
     <>
+      <h3>Whose turn? : {turn?"O":"X"}</h3>
       <StyledDivision>
         <Button buttonRow={1} buttonColumn={1} />
         <Button buttonRow={1} buttonColumn={2} />

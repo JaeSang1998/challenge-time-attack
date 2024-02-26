@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { turnChange } from "../redux/modules/currentSlice";
 
 
-function Button() {
+function Button(props) {
   const [buttonContent, setButtonContent] = useState("");
   const dispatch = useDispatch();
   const turn = useSelector((state) => state.current.currentTurn)
@@ -12,6 +12,7 @@ function Button() {
   const clicked = () => {
     if (turn) {
       setButtonContent("O");
+      console.log([props.buttonRow, props.buttonColumn])
     } else {
       setButtonContent("X");
     }
